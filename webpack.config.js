@@ -1,7 +1,7 @@
 const path = require("path");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-    entry: "./src/app.js",
+    entry: "./src/playground/redux.101.js",
     output: {
         filename: "./js/bandle.js",
         path: path.join(__dirname, "public")
@@ -23,6 +23,13 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            contentBase: path.join(__dirname, "public"),
+            template: "./src/index.html",
+            filename: "index.html"
+        })
+    ],
     devtool: "cheap-module-eval-source-map",
     devServer: {
         contentBase: path.join(__dirname, "public"),
