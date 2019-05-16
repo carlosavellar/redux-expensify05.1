@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from "react-redux";
 import selectedExpenses from "../selectors/expenses";
 import { sortByAmount, sortByDate, setTextFilter } from "../actions/filters";
-
+import { DateRangePicker } from 'react-dates';
 class ExpenseListFilter extends React.Component {
     render() {
 
@@ -30,6 +30,10 @@ class ExpenseListFilter extends React.Component {
                         <option value="date">Date</option>
                         <option value="amount">Amount</option>
                     </select>
+                    {/* <DateRangePicker 
+                        startDate: 
+                    
+                    /> */}
                 </form>
             </div>
         );
