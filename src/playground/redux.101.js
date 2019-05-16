@@ -126,6 +126,6 @@ const expenseTree = store.dispatch(addExpense({ description: "Water bill", amoun
 // store.dispatch(editExpense(expenseOne.expense.id, { description: "GraphQl" }));
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 
-// store.dispatch(setTextFilter("angular"));
-store.dispatch(sortByAmount());
-store.dispatch(sortByDate());
+store.dispatch(setTextFilter("angular"));
+// store.dispatch(sortByAmount());
+// store.dispatch(sortByDate());
