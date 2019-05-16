@@ -11,9 +11,9 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-const expenseOne = store.dispatch(addExpense({ description: "React Native", amount: 12200, note: "Amazonfg", createdAt: 1000 }));
+const expenseOne = store.dispatch(addExpense({ description: "React Native", amount: 550, note: "Amazonfg", createdAt: 1000 }));
 const expenseTwo = store.dispatch(addExpense({ description: "Angular 8", amount: 200, note: "Eficient", createdAt: 2000 }));
-const expenseTree = store.dispatch(addExpense({ description: "Water bill", amount: 500, note: "Classic", createdAt: 430 }));
+const expenseTree = store.dispatch(addExpense({ description: "Water bill", amount: 12200, note: "Classic", createdAt: 430 }));
 
 
 store.subscribe(() => {

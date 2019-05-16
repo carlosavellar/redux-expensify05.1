@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from "react-redux";
-
-import { dispatch, sortByAmount, sortByDate, setTextFilter } from "../actions/filters";
+import selectedExpenses from "../selectors/expenses";
+import { sortByAmount, sortByDate, setTextFilter } from "../actions/filters";
 
 class ExpenseListFilter extends React.Component {
     render() {
-        const { props, } = this;
+
         return (
             <div>
                 <form>
@@ -16,6 +16,20 @@ class ExpenseListFilter extends React.Component {
                             this.props.dispatch(setTextFilter(e.target.value));
                         }}
                     />
+                    <select
+                        value={this.props.filters.sortBy}
+                        onChange={(e) => {
+                            if (e.target.value === "date") {
+                                this.props.dispatch(sortByDate());
+                                console.log(e.target.value, "++");
+                            } else if (e.target.value === "amount") {
+                                this.props.dispatch(sortByAmount());
+                                console.log(e.target.value, "__");
+                            }
+                        }}>
+                        <option value="date">Date</option>
+                        <option value="amount">Amount</option>
+                    </select>
                 </form>
             </div>
         );
@@ -23,8 +37,7 @@ class ExpenseListFilter extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    filters: state.filters
-
+    filters: selectedExpenses(state.expenses, state.filters)
 });
 
 export default connect(mapStateToProps)(ExpenseListFilter);
