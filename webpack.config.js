@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-    entry: "./src/app.js",
+    entry: "./src/playground/queryStrings.js",
     output: {
         filename: "./js/bandle.js",
         path: path.join(__dirname, "public")

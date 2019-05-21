@@ -21,10 +21,10 @@ class ExpenseListFilter extends React.Component {
                         onChange={(e) => {
                             if (e.target.value === "date") {
                                 this.props.dispatch(sortByDate());
-                                console.log(e.target.value, "++");
+
                             } else if (e.target.value === "amount") {
                                 this.props.dispatch(sortByAmount());
-                                console.log(e.target.value, "__");
+
                             }
                         }}>
                         <option value="date">Date</option>

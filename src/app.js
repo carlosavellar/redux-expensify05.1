@@ -11,15 +11,15 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-const expenseOne = store.dispatch(addExpense({ description: "React Native", amount: 550, note: "Amazonfg", createdAt: 1000 }));
-const expenseTwo = store.dispatch(addExpense({ description: "Angular 8", amount: 200, note: "Eficient", createdAt: 2000 }));
-const expenseTree = store.dispatch(addExpense({ description: "Water bill", amount: 12200, note: "Classic", createdAt: 430 }));
+store.dispatch(addExpense({ description: "React Native", amount: 550, note: "Amazonfg", createdAt: 1000 }));
+store.dispatch(addExpense({ description: "Angular 8", amount: 200, note: "Eficient", createdAt: 2000 }));
+store.dispatch(addExpense({ description: "Water bill", amount: 12200, note: "Classic", createdAt: 430 }));
 
 
 store.subscribe(() => {
     const state = store.getState();
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-    console.log(visibleExpenses);
+
 });
 
 

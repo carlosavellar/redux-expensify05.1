@@ -55,7 +55,6 @@ const expenseReducer = (state = expenseReducerDefaultState, action) => {
         case "ADD_EXPENSE":
             return [...state, action.expense];
         case "REMOVE_EXPENSE":
-            console.log(action.id);
             return state.filter(({ id }) => id !== action.id);
         case "EDIT_EXPENSE":
             return state.map((expense) => {
@@ -116,7 +115,6 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
 store.subscribe(() => {
     const state = store.getState();
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-    console.log(visibleExpenses);
 });
 
 const expenseOne = store.dispatch(addExpense({ description: "React Native", amount: 12200, node: "Amazonfg", createdAt: 1000 }));
