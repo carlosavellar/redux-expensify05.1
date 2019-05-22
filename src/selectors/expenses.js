@@ -1,7 +1,9 @@
+import moment from "moment";
 export default (expenses, { text, sortBy, startDate, endDate }) => {
     return expenses.filter((expense) => {
-        const startDateMath = typeof startDate !== "number" || expense.createdAt >= startDate;
-        const endDateMath = typeof endDate !== "number" || expense.createdAt <= endDate;
+        const createAtMoment = moment(expense.createdAt);
+        const startDateMath = startDate ? startDate.isSameOrBefore(createAtMoment) : true;
+        const endDateMath = endDate ? endDate.isSameOrAfter(createAtMoment) : true;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMath && endDateMath && textMatch;
