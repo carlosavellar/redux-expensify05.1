@@ -10,9 +10,9 @@ import selectedExpenses from "./selectors/expenses";
 import "./styles/styles.scss"
 const store = configureStore();
 
-store.dispatch(addExpense({ description: "Sucesso React", amount: 13245, note: "The best", createdAt: 918811 }))
-store.dispatch(addExpense({ description: "Lib Jsx", amount: 345, note: "Obetructivet", createdAt: 2300 }))
-store.dispatch(addExpense({ description: "GRaphQl", amount: 13245, note: "Template", createdAt: 918811 }))
+store.dispatch(addExpense({ description: "Sucesso React", amount: 13245, note: "The best", createdAt: 10 }))
+store.dispatch(addExpense({ description: "Lib Jsx", amount: 345, note: "Obetructivet", createdAt: 20 }))
+store.dispatch(addExpense({ description: "GRaphQl", amount: 4245, note: "Template", createdAt: 15 }))
 
 const state = store.getState();
 

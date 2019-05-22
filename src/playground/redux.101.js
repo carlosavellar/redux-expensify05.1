@@ -100,7 +100,7 @@ const store = createStore(combineReducers({
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
     return expenses.filter((expense) => {
         const startDateMath = typeof startDate !== "number" || expense.createdAt >= startDate;
-        const endDateMath = typeof endDate !== "number" || expense.createdAt >= endDate;
+        const endDateMath = typeof endDate !== "number" || expense.createdAt <= endDate;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMath && endDateMath && textMatch;
@@ -129,3 +129,5 @@ const expenseTree = store.dispatch(addExpense({ description: "Water bill", amoun
 // store.dispatch(setTextFilter("angular"));
 store.dispatch(sortByAmount());
 store.dispatch(sortByDate());
+
+store.dispatch(setEndDate(1000));
