@@ -6,7 +6,8 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack --mode=development --open",
-    "dev-server": "webpack-dev-server --mode=development --open"
+    "dev-server": "webpack-dev-server --mode=development --open",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -14,7 +15,7 @@
     "@babel/register": "^7.4.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -47,6 +48,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "create-react-app": "^3.0.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0"
