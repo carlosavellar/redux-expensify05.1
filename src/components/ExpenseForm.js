@@ -13,7 +13,8 @@ class ExpenseForm extends React.Component {
             amount: 0,
             note: "",
             createdAt: moment(),
-            calendarFocused: false
+            calendarFocused: false,
+            error: ""
         }
     };
 
@@ -46,17 +47,23 @@ class ExpenseForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.onSubmit = () => ({
-            description: this.state.description,
-            amount: parseFloat(this.state.amount, 10) / 100,
-            note: this.state.note,
-            createdAt: moment(this.state.createdAt).valueOf
-        });
-    }
+        if (!this.state.description || !this.state.amount) {
+            this.setState(() => ({ error: "Errro has happened" }))
+        } else {
+            this.setState(() => ({ error: "" }))
+            this.props.onSubmit({
+                description: this.state.description,
+                amount: parseFloat(this.state.amount, 10) * 100,
+                note: this.state.note,
+                createdAt: moment(this.state.createdAt).valueOf
+            });
+        }
+    };
 
     render() {
         return (
             <div>
+                {this.state.error && <p>{this.state.error}</p>}
                 <form
                     onSubmit={this.onSubmit}
                 >

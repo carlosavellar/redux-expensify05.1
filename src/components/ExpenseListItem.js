@@ -1,6 +1,5 @@
 import React from 'react'
 import { removeExpense } from "../actions/expense";
-import { connect } from "react-redux";
 const ExpenseListItem = ({ dispatch, description, amount, id, note, createdAt }) => (
     <li>
 
@@ -16,4 +15,4 @@ const ExpenseListItem = ({ dispatch, description, amount, id, note, createdAt })
     </li>
 );
 
-export default connect()(ExpenseListItem);
+export default (ExpenseListItem);
