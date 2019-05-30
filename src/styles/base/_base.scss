@@ -18,3 +18,11 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+ul{
+  li{
+    list-style: none;
+    border-bottom: 1px dashed #ccc;
+    padding: 13px 0;
+  }
+}
