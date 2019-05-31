@@ -1,16 +1,17 @@
+// Teste Undo COmmit
 import React from 'react'
 import { SingleDatePicker } from 'react-dates';
 import moment from "moment";
 
 import 'react-dates/lib/css/_datepicker.css';
 import { parse } from '@babel/parser';
-
+console.log(moment());
 class ExpenseForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             description: props.expense ? props.expense.description : "",
-            amount: props.expense ? (props.expense.amount).toString() : 0,
+            amount: props.expense ? (props.expense.amount / 100).toString() : 0,
             note: props.expense ? props.expense.note : "",
             createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
             calendarFocused: false,
@@ -50,14 +51,15 @@ class ExpenseForm extends React.Component {
         if (!this.state.description || !this.state.amount) {
             this.setState(() => ({ error: "Errro has happened" }))
         } else {
-            this.setState(() => ({ error: "" }))
+            this.setState(() => ({ error: "" }));
             this.props.onSubmit({
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10) * 100,
+                createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note,
-                createdAt: moment(this.state.createdAt).valueOf
             });
         }
+        console.log(this.state)
     };
 
     render() {
@@ -93,6 +95,8 @@ class ExpenseForm extends React.Component {
                         onDateChange={this.ondDatesChange}
                         focused={this.state.calendarFocused}
                         onFocusChange={this.onFocusChange}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
                     />
                     <button>
                         add
