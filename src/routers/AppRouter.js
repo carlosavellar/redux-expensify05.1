@@ -23,7 +23,7 @@ class AppRouter extends React.Component {
         </div>
       </BrowserRouter>
     )
-  };
+  }
 }
 
 export default AppRouter;
