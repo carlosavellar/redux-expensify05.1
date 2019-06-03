@@ -10,7 +10,7 @@ module.exports = (env) => {
         entry: "./src/app.js",
         output: {
             filename: "./js/bandle.js",
-            path: path.join(__dirname, "public")
+            path: path.join(__dirname, "public", "dist")
         },
         module: {
             rules: [
@@ -54,7 +54,8 @@ module.exports = (env) => {
         devtool: isProduction ? "source-map" : "inline-source-map",
         devServer: {
             contentBase: path.join(__dirname, "public"),
-            historyApiFallback: true
+            historyApiFallback: true,
+            publicPath: '/dist/'
         },
     }
 }

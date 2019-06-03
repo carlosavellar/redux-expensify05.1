@@ -1,5 +1,6 @@
 /node_modules
-public/js/bandle.js
-public/js/bandle.js.map
-public/style.css
-public/style.css.map
+public/dist
+# public/js/bandle.js
+# public/js/bandle.js.map
+# public/style.css
+# public/style.css.map
