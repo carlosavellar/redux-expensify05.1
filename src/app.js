@@ -9,6 +9,8 @@ import getvisibleExpenses from "./selectors/expense";
 import configureStore from "./store/configureStore";
 import { Provider } from "react-redux";
 const store = configureStore();
+import 'normalize.css/normalize.css';
+import 'react-dates/lib/css/_datepicker.css';
 
 store.dispatch(addExpense({ description: "Water bill", amount: 1234, note: "Water integraion", createdAt: 3000 }));
 store.dispatch(addExpense({ description: "Pìxe bill", amount: 4, note: "Kraken bill", createdAt: 1200 }));

@@ -3,7 +3,6 @@ import React from 'react'
 import { SingleDatePicker } from 'react-dates';
 import moment from "moment";
 
-import 'react-dates/lib/css/_datepicker.css';
 import { parse } from '@babel/parser';
 console.log(moment());
 class ExpenseForm extends React.Component {
