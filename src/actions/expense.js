@@ -1,4 +1,5 @@
 import uniqid from "uniqid";
+
 export const addExpense = ({ description = "", amount = 0, note = "", createdAt = 0 }) => ({
     type: "ADD_EXPENSE",
     expense: {

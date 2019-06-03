@@ -1,10 +1,11 @@
+// Teste Undo COmmit
 import React from 'react';
 import ExpenseList from "./ExpenseList";
-import ExpenseListFilters from "./ExpenseListFilter";
+import ExpenseListFilter from "./ExpenseListFilter";
 const ExpenseDashboardPage = () => (
   <div>
     <ExpenseList />
-    <ExpenseListFilters />
+    <ExpenseListFilter />
   </div>
 );
 

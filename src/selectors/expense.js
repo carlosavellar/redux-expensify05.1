@@ -1,3 +1,5 @@
+
+
 export default (expenses, { text, sortBy, startDate, endDate }) => {
     return expenses.filter((expense) => {
         const startDateMath = typeof startDate !== "number" || expense.createdAt >= startDate;
@@ -12,4 +14,3 @@ export default (expenses, { text, sortBy, startDate, endDate }) => {
         }
     });
 };
-

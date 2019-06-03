@@ -1,31 +1,30 @@
-import { Provider } from "react-redux";
-import { addExpense } from "./actions/expense";
-import { setTextFilter } from "./actions/filters";
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from "./store/configureStore";
 import AppRouter from './routers/AppRouter';
-import getVisibleExpenses from "./selectors/expenses";
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-
+import { addExpense } from "./actions/expense";
+import getvisibleExpenses from "./selectors/expense";
+import configureStore from "./store/configureStore";
+import { Provider } from "react-redux";
 const store = configureStore();
+import 'normalize.css/normalize.css';
+import 'react-dates/lib/css/_datepicker.css';
 
-store.dispatch(addExpense({ description: "React Native", amount: 550, note: "Amazonfg", createdAt: 1000 }));
-store.dispatch(addExpense({ description: "Angular 8", amount: 200, note: "Eficient", createdAt: 2000 }));
-store.dispatch(addExpense({ description: "Water bill", amount: 12200, note: "Classic", createdAt: 430 }));
+store.dispatch(addExpense({ description: "Water bill", amount: 1234, note: "Water integraion", createdAt: 3000 }));
+store.dispatch(addExpense({ description: "Pìxe bill", amount: 4, note: "Kraken bill", createdAt: 1200 }));
+store.dispatch(addExpense({ description: "Coppolla bill", amount: 15, note: "Slater", createdAt: 20 }));
 
+const state = store.getState();
+const visibleExpenses = getvisibleExpenses(state.expenses, state.filters);
+console.log(visibleExpenses);
 
-store.subscribe(() => {
-    const state = store.getState();
-    const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-
-});
-
-
-const jsx = <Provider store={store}>
-    <AppRouter />
-</Provider>;
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);
 
 ReactDOM.render(jsx, document.getElementById('app'));
 // store.dispatch(setTextFilter("angular"));
