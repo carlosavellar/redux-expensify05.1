@@ -9,7 +9,7 @@
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --mode=development --open",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run build:prod"
+    "heroku-postbuild": "yarn run build:prod"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
