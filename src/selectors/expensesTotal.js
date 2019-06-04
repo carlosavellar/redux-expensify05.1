@@ -1,12 +1,15 @@
 import React from 'react'
 
-const expenseTotal = (expenses) => {
-    let total = 0;
+export default (expenses) => {
 
-    expenses.map((expense) => {
-        return total += expense.amount;
-    });
-    return total;
+
+    // expenses.map((expense) => {
+    //     return total += expense.amount;
+    // });
+
+    return expenses.map((expense) => expense.amount)
+        .reduce((sum, value) => {
+            return sum += value;
+        }, 0);
+
 };
-
-export default expenseTotal;
