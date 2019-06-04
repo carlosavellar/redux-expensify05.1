@@ -11,7 +11,6 @@ const ExpenseListItem = ({ description, amount, note, id, createdAt }) => (
         <span>{moment(createdAt).format("MMMM Do, YYYY")}</span><span>  |  </span>
         <span>{note}</span><span>  |  </span>
         <span>{id}</span><span>  |  </span>
-
     </li>
 );
 

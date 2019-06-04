@@ -12,9 +12,9 @@ const store = configureStore();
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
 
-store.dispatch(addExpense({ description: "Water bill", amount: 1234, note: "Water integraion", createdAt: 3000 }));
-store.dispatch(addExpense({ description: "Pìxe bill", amount: 4, note: "Kraken bill", createdAt: 1200 }));
-store.dispatch(addExpense({ description: "Coppolla bill", amount: 15, note: "Slater", createdAt: 20 }));
+store.dispatch(addExpense({ description: "Water bill", amount: 4, note: "Water integraion", createdAt: 3000 }));
+store.dispatch(addExpense({ description: "Pìxe bill", amount: 5, note: "Kraken bill", createdAt: 1200 }));
+store.dispatch(addExpense({ description: "Coppolla bill", amount: 2, note: "Slater", createdAt: 20 }));
 
 const state = store.getState();
 const visibleExpenses = getvisibleExpenses(state.expenses, state.filters);
