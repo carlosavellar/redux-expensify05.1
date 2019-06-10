@@ -7,7 +7,7 @@ module.exports = (env) => {
     const isProduction = env === "production";
     const CssExtracted = new ExtractTextPlugin("style.css");
     return {
-        entry: "./src/playground/redux.101.js",
+        entry: "./src/app.js",
         output: {
             filename: "./js/bandle.js",
             path: path.join(__dirname, "public", "dist")
