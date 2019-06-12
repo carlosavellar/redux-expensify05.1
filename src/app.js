@@ -18,9 +18,9 @@ store.subscribe(() => {
     console.log(visibleState, "disso tudo");
 });
 
-store.dispatch(addExpense({ description: "Water bill", amount: 4, note: "Water integraion", createdAt: 3000 }));
-store.dispatch(addExpense({ description: "Pìxe bill", amount: 5, note: "Kraken bill", createdAt: 1200 }));
-store.dispatch(addExpense({ description: "Coppolla bill", amount: 2, note: "Slater", createdAt: 20 }));
+store.dispatch(addExpense({ description: "Armagedon", amount: 4, note: "Water integraion", createdAt: 3000 }));
+store.dispatch(addExpense({ description: "Sky", amount: 5, note: "Kraken bill", createdAt: 1200 }));
+store.dispatch(addExpense({ description: "Blue", amount: 2, note: "Slater", createdAt: 20 }));
 
 const jsx = <Provider store={store}>
     <AppRouter />
