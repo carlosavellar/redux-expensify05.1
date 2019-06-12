@@ -13,16 +13,18 @@ import { Provider } from "react-redux";
 
 const store = configureStore();
 store.subscribe(() => {
-    console.log(store.getState());
+    const state = store.getState();
+    const visibleState = getVisibleExpenses(state.expenses, state.filters);
+    console.log(visibleState, "disso tudo");
 });
-
-const jsx = <Provider store={store}>
-    <AppRouter />
-</Provider>;
 
 store.dispatch(addExpense({ description: "Water bill", amount: 4, note: "Water integraion", createdAt: 3000 }));
 store.dispatch(addExpense({ description: "Pìxe bill", amount: 5, note: "Kraken bill", createdAt: 1200 }));
 store.dispatch(addExpense({ description: "Coppolla bill", amount: 2, note: "Slater", createdAt: 20 }));
+
+const jsx = <Provider store={store}>
+    <AppRouter />
+</Provider>;
 
 ReactDOM.render(jsx, document.getElementById('app'));
 // store.dispatch(setTextFilter("angular"));
