@@ -11,6 +11,6 @@ import 'react-dates/lib/css/_datepicker.css';
 
 
 
-
+console.log("Deltan");
 
 // store.dispatch(setTextFilter("angular"));
