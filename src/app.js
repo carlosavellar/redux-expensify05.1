@@ -23,8 +23,11 @@ const expenseOne = store.dispatch(addExpense({ description: "React Native", amou
 const expenseTwo = store.dispatch(addExpense({ description: "Angular 8", amount: 200, node: "Eficient", createdAt: 2000 }));
 const expenseTree = store.dispatch(addExpense({ description: "Water bill", amount: 500, node: "Classic", createdAt: 430 }));
 
+const jsx = (<Provider store={store}>
+    <AppRouter />
+</Provider>);
 
 
-console.log("Deltan");
 
+ReactDOM.render(jsx, document.querySelector("#app"));
 // store.dispatch(setTextFilter("angular"));
