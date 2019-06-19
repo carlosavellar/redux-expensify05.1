@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 const store = configureStore();
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
+import "./firebase/firebase";
 
 store.dispatch(addExpense({ description: "Water bill", amount: 4, note: "Water integraion", createdAt: 3000 }));
 store.dispatch(addExpense({ description: "Pìxe bill", amount: 5, note: "Kraken bill", createdAt: 1200 }));
