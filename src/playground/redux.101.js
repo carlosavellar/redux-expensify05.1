@@ -101,7 +101,7 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         const startDateMath = typeof startDate !== "number" || expense.createdAt >= startDate;
         const endDateMath = typeof endDate !== "number" || expense.createdAt >= endDate;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
-
+        console.log(typeof text);
         return startDateMath && endDateMath && textMatch;
     }).sort((a, b) => {
         if (sortBy === "date") {

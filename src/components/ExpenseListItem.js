@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import { removeExpense } from "../actions/expense";
 
@@ -9,7 +9,7 @@ const ExpenseListItem = ({ dispatch, id, description, amount, createdAt, note })
         <span>{note} - </span>
         <span>{createdAt} - </span>
         <button onClick={() => {
-            dispatch(removeExpense(id))
+            dispatch(removeExpense({ id }))
         }}>
             Remove
         </button>
