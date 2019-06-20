@@ -13,46 +13,54 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: "José Carlos",
-  age: 1000,
-  sttressLevel: 6,
-  location: {
-    city: "Philadelfia",
-    country: "Italy"
-  },
-  job: {
-    title: "C.T.O.",
-    company: "Google"
-  }
-
-}).then(() => {
-  console.log("Everything went ok");
-}).catch((err) => {
-  console("erro:", err)
-});
-
-database.ref("attribute").set({
-  hight: 280,
-  weight: 90
-});
-
-database.ref("isSingle").set(true);
-
-const civilStatus = database.ref("isSingle");
-
-civilStatus.remove(() => {
-  alert("Aeee on complete");
-})
-  .then(() => {
-    console.log("Remove complete")
-  }).catch((err) => {
-    console.log("Could noty Remove: ", err);
+database.ref("location").once("value")
+  .then((snapshot) => {
+    const val = snapshot.val();
+    console.log(val);
+  }).catch(() => {
+    console.log("Erro no fetch");
   });
 
-database.ref().update({
-  sttressLevel: 9,
-  "location/city": "New Yourk",
-  "job/company": "Amazon"
 
-});
+// database.ref().set({
+//   name: "José Carlos",
+//   age: 1000,
+//   sttressLevel: 6,
+//   location: {
+//     city: "Philadelfia",
+//     country: "Italy"
+//   },
+//   job: {
+//     title: "C.T.O.",
+//     company: "Google"
+//   }
+
+// }).then(() => {
+//   console.log("Everything went ok");
+// }).catch((err) => {
+//   console("erro:", err)
+// });
+
+// database.ref("attribute").set({
+//   hight: 280,
+//   weight: 90
+// });
+
+// database.ref("isSingle").set(true);
+
+// const civilStatus = database.ref("isSingle");
+
+// civilStatus.remove(() => {
+//   console.log("Aeee on complete");
+// })
+//   .then(() => {
+//     console.log("Remove complete")
+//   }).catch((err) => {
+//     console.log("Could noty Remove: ", err);
+//   });
+
+// database.ref().update({
+//   sttressLevel: 9,
+//   "location/city": "New Yourk",
+//   "job/company": "Amazon"
+// });

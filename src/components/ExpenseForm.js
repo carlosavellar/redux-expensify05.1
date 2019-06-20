@@ -4,7 +4,7 @@ import { SingleDatePicker } from 'react-dates';
 import moment from "moment";
 
 import { parse } from '@babel/parser';
-console.log(moment());
+// console.log(moment());
 class ExpenseForm extends React.Component {
     constructor(props) {
         super(props);

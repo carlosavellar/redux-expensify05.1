@@ -19,7 +19,7 @@ store.dispatch(addExpense({ description: "Coppolla bill", amount: 2, note: "Slat
 
 const state = store.getState();
 const visibleExpenses = getvisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
+// console.log(visibleExpenses);
 
 const jsx = (
     <Provider store={store}>

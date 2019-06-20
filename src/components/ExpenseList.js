@@ -11,7 +11,7 @@ class ExpenseList extends React.Component {
             props,
         } = this;
         let total = 0;
-        console.log(this);
+        // console.log(this);
 
         return (
             <div>
