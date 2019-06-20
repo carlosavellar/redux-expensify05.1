@@ -59,7 +59,7 @@ const expenseReducer = (state = expenseReducerDefaultState, action) => {
         case "EDIT_EXPENSE":
             return state.map((expense) => {
                 if (expense.id === action.id) {
-                    return { ...state, ...action.updates }
+                    return { ...expense, ...action.updates }
                 } else {
                     return expense;
                 }
@@ -101,7 +101,6 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         const startDateMath = typeof startDate !== "number" || expense.createdAt >= startDate;
         const endDateMath = typeof endDate !== "number" || expense.createdAt >= endDate;
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
-        console.log(typeof text);
         return startDateMath && endDateMath && textMatch;
     }).sort((a, b) => {
         if (sortBy === "date") {
@@ -122,9 +121,9 @@ const expenseOne = store.dispatch(addExpense({ description: "React Native", amou
 const expenseTwo = store.dispatch(addExpense({ description: "Angular 8", amount: 200, node: "Eficient", createdAt: 2000 }));
 const expenseTree = store.dispatch(addExpense({ description: "Water bill", amount: 500, node: "Classic", createdAt: 430 }));
 
-// store.dispatch(editExpense(expenseOne.expense.id, { description: "GraphQl" }));
+store.dispatch(editExpense(expenseOne.expense.id, { description: "GraphQl" }));
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 
-store.dispatch(setTextFilter("angular"));
+// store.dispatch(setTextFilter("angular"));
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());

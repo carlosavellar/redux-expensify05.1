@@ -1,15 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default (expenses) => {
 
+    if (expenses.length >= 0) {
 
-    // expenses.map((expense) => {
-    //     return total += expense.amount;
-    // });
+        return expenses.map((expense) => expense.amount)
+            .reduce((sum, val) => { sum + val }, 0);
+    }
 
-    return expenses.map((expense) => expense.amount)
-        .reduce((sum, value) => {
-            return sum += value;
-        }, 0);
-
-};
+}

@@ -7,8 +7,8 @@ import {
 
 const ExpenseListItem = ({ dispatch, id, description, amount, createdAt, note }) => (
     <div>
-        <h4><Link to={`edit/${id}`}>{description}</Link></h4>
-        <span>{amount}</span>
+        <h4><Link to={`edit/${id}`}>{description}  </Link></h4>
+        <span>Amount: {amount}  </span>
         <span>{note} - </span>
         <span>{createdAt} - </span>
 
