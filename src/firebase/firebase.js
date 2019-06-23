@@ -13,13 +13,32 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref("location").once("value")
-  .then((snapshot) => {
-    const val = snapshot.val();
-    console.log(val);
-  }).catch(() => {
-    console.log("Erro no fetch");
-  });
+// database.ref("location").once("value")
+//   .then((snapshot) => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   }).catch(() => {
+//     console.log("Erro no fetch");
+//   });
+
+
+// const onValueChange = database.ref().on("value", (snapshot) => {
+//   console.log("data: ", snapshot.val());
+// }, (e) => {
+//   console.log("value error: ", e);
+// });
+// setTimeout(() => {
+//   database.ref("location/city").set("Tampa");
+// }, 2000);
+// setTimeout(() => {
+//   database.ref("location/city").set("Michigan");
+// }, 5000);
+// setTimeout(() => {
+//   database.ref().off(onValueChange);
+// })
+// setTimeout(() => {
+//   database.ref("location/city").set("Berlin");
+// }, 7000);
 
 
 // database.ref().set({
@@ -40,6 +59,14 @@ database.ref("location").once("value")
 // }).catch((err) => {
 //   console("erro:", err)
 // });
+
+
+// database.ref().on("value", (snapshot) => {
+//   const person = snapshot.val();
+//   console.log(`${person.name} is ${person.job.title} na ${person.job.company}`);
+// });
+
+
 
 // database.ref("attribute").set({
 //   hight: 280,
@@ -64,3 +91,67 @@ database.ref("location").once("value")
 //   "location/city": "New Yourk",
 //   "job/company": "Amazon"
 // });
+
+
+// database.ref().on("value", (snapshot) => {
+//   console.log(snapshot.val());
+// });
+
+// database.ref("expenses").push({
+//   description: "Conta de água",
+//   note: "vence este mês",
+//   amount: 300,
+//   createdAt: 1020200
+// });
+// database.ref("expenses").push({
+//   description: "Casa",
+//   note: "pagar",
+//   amount: 300,
+//   createdAt: 1020200
+// });
+// database.ref("expenses").push({
+//   description: "Mulher",
+//   note: "pagar",
+//   amount: 300,
+//   createdAt: 1020200
+// });
+
+
+
+// database.ref().once("value")
+//   .then((snapshot) => {
+//     console.log(snapshot.val());
+//     const expense = [];
+//     snapshot.forEach((childSnapshot) => {
+//       expense.push({
+//         ...id.childSnapshot.key,
+//         ...snapshot.val()
+//       });
+//     });
+
+//   });
+
+
+// database.ref("expenses").on("value", (snapshot) => {
+//   console.log(snapshot.val());
+//   const expense = [];
+//   snapshot.forEach((childSnapshot) => {
+//     expense.push({
+//       ...id.childSnapshot.key,
+//       ...snapshot.val()
+//     });
+//   });
+// });
+
+
+database.ref("expenses").on("child_removed", (snapshot) => {
+  console.log(snapshot.key, snapshot.val(), "removed");
+});
+
+database.ref("expenses").on("child_changed", (snapshot) => {
+  console.log(snapshot.key, snapshot.val(), "changed");
+});
+
+database.ref("expenses").on("child_added", (snapshot) => {
+  console.log(snapshot.key, snapshot.val(), "_added");
+});
