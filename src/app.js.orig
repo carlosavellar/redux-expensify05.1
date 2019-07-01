@@ -1,0 +1,23 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRouter from './routers/AppRouter';
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
+import { addExpense } from "./actions/expense";
+import configureStore from "./store/configureStore";
+import 'normalize.css/normalize.css';
+import 'react-dates/lib/css/_datepicker.css';
+
+
+<<<<<<< HEAD
+=======
+const state = store.getState();
+const visibleExpenses = getvisibleExpenses(state.expenses, state.filters);
+// console.log(visibleExpenses);
+>>>>>>> Firebase
+
+const jsx = (<Provider store={store}>
+    <AppRouter />
+</Provider>);
+
+// store.dispatch(setTextFilter("angular"));
