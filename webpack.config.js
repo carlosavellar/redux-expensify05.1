@@ -44,11 +44,11 @@ module.exports = (env) => {
         },
         plugins: [
             CssExtracted,
-            new HtmlWebpackPlugin({
-                contentBase: path.join(__dirname, "public"),
-                template: "./src/index.html",
-                filename: "index.html"
-            }),
+            // new HtmlWebpackPlugin({
+            //     contentBase: path.join(__dirname, "public"),
+            //     template: "./src/index.html",
+            //     filename: "index.html"
+            // }),
 
         ],
         devtool: isProduction ? "source-map" : "inline-source-map",
