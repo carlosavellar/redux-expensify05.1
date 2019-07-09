@@ -1,18 +1,27 @@
 // Teste Undo COmmit
 import React from 'react';
-import ExpenseForm from "./ExpenseForm";
-import { addExpense } from "../actions/expense";
 import { connect } from 'react-redux'
+import ExpenseForm from "./ExpenseForm";
+import { addStarExpense } from "../actions/expense";
 
-const AddExpensePage = (props) => (
-  <div>
-    <ExpenseForm
-      onSubmit={(expense) => {
-        props.dispatch(addExpense(expense));
-        props.history.push("/");
-      }}
-    />
-  </div>
-);
+class AddExpensePage extends React.Component {
+  onSubmit = (expense) => {
+    this.props.addStarExpense(expense);
+    this.props.history.push("/");
+  };
+  render() {
+    return (
+      <div>
+        <ExpenseForm
+          onSubmit={this.onSubmit}
+        />
+      </div>
+    );
+  }
+}
 
-export default connect()(AddExpensePage);
+const mapDispatchToProps = (dispatch) => ({
+  addStarExpense: (expense) => dispatch(addStarExpense(expense))
+})
+
+export default connect(undefined, mapDispatchToProps)(AddExpensePage);
