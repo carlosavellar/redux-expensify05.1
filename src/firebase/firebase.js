@@ -1,18 +1,19 @@
 import * as firebase from "firebase";
 const firebaseConfig = {
-  apiKey: "AIzaSyBq7uhdChCglk1GAZjO8amiaZBXQMhMtWM",
-  authDomain: "expenseapp-f69db.firebaseapp.com",
-  databaseURL: "https://expenseapp-f69db.firebaseio.com",
-  projectId: "expenseapp-f69db",
-  storageBucket: "expenseapp-f69db.appspot.com",
-  messagingSenderId: "80958326505",
-  appId: "1:80958326505:web:b39c8211b49677da"
+    apiKey: "AIzaSyBq7uhdChCglk1GAZjO8amiaZBXQMhMtWM",
+    authDomain: "expenseapp-f69db.firebaseapp.com",
+    databaseURL: "https://expenseapp-f69db.firebaseio.com",
+    projectId: "expenseapp-f69db",
+    storageBucket: "expenseapp-f69db.appspot.com",
+    messagingSenderId: "80958326505",
+    appId: "1:80958326505:web:b39c8211b49677da"
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
+export { firebase, database as default };
 // database.ref("location").once("value")
 //   .then((snapshot) => {
 //     const val = snapshot.val();
@@ -145,13 +146,13 @@ const database = firebase.database();
 
 
 database.ref("expenses").on("child_removed", (snapshot) => {
-  console.log(snapshot.key, snapshot.val(), "removed");
+    console.log(snapshot.key, snapshot.val(), "removed");
 });
 
 database.ref("expenses").on("child_changed", (snapshot) => {
-  console.log(snapshot.key, snapshot.val(), "changed");
+    console.log(snapshot.key, snapshot.val(), "changed");
 });
 
 database.ref("expenses").on("child_added", (snapshot) => {
-  console.log(snapshot.key, snapshot.val(), "_added");
+    console.log(snapshot.key, snapshot.val(), "_added");
 });
